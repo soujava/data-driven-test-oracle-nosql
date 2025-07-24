@@ -3,7 +3,6 @@ package org.soujava.demos.mongodb.document;
 import jakarta.inject.Inject;
 import net.datafaker.Faker;
 import org.assertj.core.api.SoftAssertions;
-import org.eclipse.jnosql.databases.mongodb.mapping.MongoDBTemplate;
 import org.eclipse.jnosql.mapping.Database;
 import org.eclipse.jnosql.mapping.core.Converters;
 import org.eclipse.jnosql.mapping.document.DocumentTemplate;
@@ -28,10 +27,9 @@ import java.util.stream.Stream;
 
 
 @EnableAutoWeld
-@AddPackages(value = {Database.class, EntityConverter.class, DocumentTemplate.class, MongoDBTemplate.class})
+@AddPackages(value = {Database.class, EntityConverter.class, DocumentTemplate.class})
 @AddPackages(Room.class)
 @AddPackages(ManagerSupplier.class)
-@AddPackages(MongoDBTemplate.class)
 @AddPackages(Reflections.class)
 @AddPackages(Converters.class)
 @AddExtensions({ReflectionEntityMetadataExtension.class, DocumentExtension.class})
