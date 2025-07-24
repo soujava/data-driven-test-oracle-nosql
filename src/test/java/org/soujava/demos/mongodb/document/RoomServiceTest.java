@@ -22,6 +22,7 @@ import org.junit.jupiter.params.provider.EnumSource;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Stream;
 
@@ -184,6 +185,7 @@ class RoomServiceTest {
 
     private static Room getRoom() {
         return new RoomBuilder()
+                .id(UUID.randomUUID().toString())
                 .roomNumber(FAKER.number().numberBetween(100, 999))
                 .type(randomEnum(RoomType.class))
                 .status(randomEnum(RoomStatus.class))
