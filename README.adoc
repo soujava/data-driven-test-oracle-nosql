@@ -1,7 +1,7 @@
 = Data Driven Test
 :toc: auto
 
-image::http://www.jnosql.org/img/logos/mongodb.png[MongoDB, width=200px]
+image::http://www.jnosql.org/img/logos/oracle.png[Oracle NoSQL, width=200px]
 
 **Mongodb**: MongoDB is a free and open-source cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with schemas.
 
@@ -13,5 +13,5 @@ image::http://www.jnosql.org/img/logos/mongodb.png[MongoDB, width=200px]
 
 [source, bash]
 ----
-docker run -d --name mongodb-instance -p 27017:27017 mongo
+docker run -d --name oracle-instance -p 8080:8080 ghcr.io/oracle/nosql:latest-ce
 ----
