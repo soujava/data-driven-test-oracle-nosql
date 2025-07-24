@@ -117,7 +117,7 @@ class RoomServiceTest {
     @ParameterizedTest(name = "should find rooms by type {0}")
     @EnumSource(RoomType.class)
     void shouldFindRoomByType(RoomType type) {
-        List<Room> rooms = this.repository.findByType(type);
+        List<Room> rooms = this.repository.findByType(type.name());
         SoftAssertions.assertSoftly(softly -> softly.assertThat(rooms).allMatch(room -> room.getType().equals(type)));
     }
 

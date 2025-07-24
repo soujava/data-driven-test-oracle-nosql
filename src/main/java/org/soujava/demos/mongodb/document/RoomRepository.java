@@ -30,5 +30,5 @@ public interface RoomRepository {
     void deleteBy();
 
     @Query("WHERE type = :type")
-    List<Room> findByType(@Param("type") RoomType type);
+    List<Room> findByType(@Param("type") String type);
 }
