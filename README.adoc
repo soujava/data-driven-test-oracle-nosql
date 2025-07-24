@@ -8,8 +8,7 @@ image::http://www.jnosql.org/img/logos/oracle.png[Oracle NoSQL, width=200px]
 == How to install with Docker
 
 1. Install docker: https://www.docker.com/
-2. https://hub.docker.com/_/mongo
-3. Run docker command:
+2. Run docker command:
 
 [source, bash]
 ----
