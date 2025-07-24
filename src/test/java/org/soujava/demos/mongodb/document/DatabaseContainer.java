@@ -1,44 +1,39 @@
 package org.soujava.demos.mongodb.document;
 
 import org.eclipse.jnosql.communication.Settings;
-import org.eclipse.jnosql.databases.mongodb.communication.MongoDBDocumentConfiguration;
-import org.eclipse.jnosql.databases.mongodb.communication.MongoDBDocumentConfigurations;
-import org.eclipse.jnosql.databases.mongodb.communication.MongoDBDocumentManager;
-import org.eclipse.jnosql.databases.mongodb.communication.MongoDBDocumentManagerFactory;
-import org.eclipse.jnosql.mapping.core.config.MappingConfigurations;
+import org.eclipse.jnosql.communication.semistructured.DatabaseConfiguration;
+import org.eclipse.jnosql.communication.semistructured.DatabaseManager;
+import org.eclipse.jnosql.communication.semistructured.DatabaseManagerFactory;
+import org.eclipse.jnosql.databases.oracle.communication.OracleNoSQLConfigurations;
 import org.testcontainers.containers.GenericContainer;
-import org.testcontainers.containers.wait.strategy.Wait;
-
-import java.util.HashMap;
-import java.util.Map;
+import org.testcontainers.utility.DockerImageName;
 public enum DatabaseContainer {
 
     INSTANCE;
 
-    private final GenericContainer<?> mongodb =
-            new GenericContainer<>("mongo:latest")
-                    .withExposedPorts(27017)
-                    .waitingFor(Wait.defaultWaitStrategy());
+    private final GenericContainer<?> container = new GenericContainer<>
+            (DockerImageName.parse("ghcr.io/oracle/nosql:latest-ce"))
+            .withExposedPorts(8080);
 
     {
-        mongodb.start();
+        container.start();
     }
-    public MongoDBDocumentManager get(String database) {
-        Settings settings = getSettings(database);
-        MongoDBDocumentConfiguration configuration = new MongoDBDocumentConfiguration();
-        MongoDBDocumentManagerFactory factory = configuration.apply(settings);
+    public DatabaseManager get(String database) {
+        DatabaseManagerFactory factory = managerFactory();
         return factory.apply(database);
     }
 
 
-    private Settings getSettings(String database) {
-        Map<String,Object> settings = new HashMap<>();
-        settings.put(MongoDBDocumentConfigurations.HOST.get()+".1", host());
-        settings.put(MappingConfigurations.DOCUMENT_DATABASE.get(), database);
-        return Settings.of(settings);
+
+    public DatabaseManagerFactory managerFactory() {
+        var configuration = DatabaseConfiguration.getConfiguration();
+        Settings settings = Settings.builder()
+                .put(OracleNoSQLConfigurations.HOST, host())
+                .build();
+        return configuration.apply(settings);
     }
 
     public String host() {
-        return mongodb.getHost() + ":" + mongodb.getFirstMappedPort();
+        return "http://" + container.getHost() + ":" + container.getFirstMappedPort();
     }
 }
