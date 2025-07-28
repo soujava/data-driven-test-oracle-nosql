@@ -1,5 +1,9 @@
 = Data Driven Test
-:toc: auto
+:toc: macro
+:icons: font
+:source-highlighter: highlightjs
+:sectnums:
+:sectnumlevels: 3
 
 image::http://www.jnosql.org/img/logos/oracle.png[Oracle NoSQL, width=200px]
 
