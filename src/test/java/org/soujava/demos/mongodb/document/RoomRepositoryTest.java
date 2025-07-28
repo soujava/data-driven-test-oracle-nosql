@@ -178,8 +178,7 @@ class RoomRepositoryTest {
     }
 
     static Stream<Arguments> room() {
-        return Stream.of(Arguments.of(RoomFaker.getRoom(), Arguments.of(RoomFaker.getRoom(),
-                Arguments.of(RoomFaker.getRoom()))));
+        return RoomFaker.room();
     }
 
 }
