@@ -13,7 +13,6 @@ import org.jboss.weld.junit5.auto.AddPackages;
 import org.jboss.weld.junit5.auto.EnableAutoWeld;
 import org.junit.jupiter.api.Test;
 
-import java.util.UUID;
 
 @EnableAutoWeld
 @AddPackages(value = {Database.class, EntityConverter.class, DocumentTemplate.class})
@@ -30,19 +29,9 @@ class RoomServiceTest {
 
     @Test
     void shouldSaveRoom() {
+        var room = RoomFaker.getRoom();
         service.newRoom(room);
     }
 
 
-
-    private static Room getRoom() {
-        return Room.builder()
-                .id(UUID.randomUUID().toString())
-                .roomNumber(FAKER.number().numberBetween(100, 999))
-                .type(randomEnum(RoomType.class))
-                .status(randomEnum(RoomStatus.class))
-                .cleanStatus(randomEnum(CleanStatus.class))
-                .smokingAllowed(FAKER.bool().bool())
-                .build();
-    }
 }
