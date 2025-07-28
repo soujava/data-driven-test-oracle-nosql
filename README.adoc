@@ -3,6 +3,8 @@
 
 image::http://www.jnosql.org/img/logos/oracle.png[Oracle NoSQL, width=200px]
 
+Oracle NoSQL Database is designed for today’s most demanding applications that require low latency responses, flexible data models, and elastic scaling for dynamic workloads. It supports JSON, Table and Key-Value datatypes running on-premise, or as a cloud service with on-demand throughput and storage based provisioning.
+
 == How to install with Docker
 
 1. Install docker: https://www.docker.com/
