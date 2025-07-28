@@ -34,7 +34,7 @@ import java.util.stream.Stream;
 @AddPackages(Reflections.class)
 @AddPackages(Converters.class)
 @AddExtensions({ReflectionEntityMetadataExtension.class, DocumentExtension.class})
-class RoomServiceTest {
+class RoomSRepositoryTest {
 
     @Inject
     private RoomRepository repository;
