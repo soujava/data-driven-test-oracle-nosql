@@ -29,7 +29,7 @@ class AppTest {
 
     @Test
     void shouldTest() {
-        Room room = new RoomBuilder()
+        Room room = Room.builder()
                 .id("room-1")
                 .roomNumber(101)
                 .type(RoomType.SUITE)
