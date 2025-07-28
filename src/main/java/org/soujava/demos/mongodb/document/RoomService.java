@@ -19,4 +19,11 @@ public class RoomService {
     RoomService() {
         this.repository = null;
     }
+
+    public void newRoom(Room room) {
+        repository.newRoom(room);
+    }
+
+
+
 }
