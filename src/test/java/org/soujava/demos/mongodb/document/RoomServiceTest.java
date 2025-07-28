@@ -44,7 +44,7 @@ class RoomServiceTest {
     @BeforeEach
     void setUP() {
 
-        Room vipRoom1 = new RoomBuilder()
+        Room vipRoom1 = Room.builder()
                 .roomNumber(101)
                 .type(RoomType.VIP_SUITE)
                 .status(RoomStatus.AVAILABLE)
@@ -52,7 +52,7 @@ class RoomServiceTest {
                 .smokingAllowed(false)
                 .build();
 
-        Room vipRoom2 = new RoomBuilder()
+        Room vipRoom2 =  Room.builder()
                 .roomNumber(102)
                 .type(RoomType.VIP_SUITE)
                 .status(RoomStatus.AVAILABLE)
@@ -60,7 +60,7 @@ class RoomServiceTest {
                 .smokingAllowed(true)
                 .build();
 
-        Room standardRoom1 = new RoomBuilder()
+        Room standardRoom1 =  Room.builder()
                 .roomNumber(201)
                 .type(RoomType.STANDARD)
                 .status(RoomStatus.AVAILABLE)
@@ -68,7 +68,7 @@ class RoomServiceTest {
                 .smokingAllowed(false)
                 .build();
 
-        Room standardRoom2 = new RoomBuilder()
+        Room standardRoom2 =  Room.builder()
                 .roomNumber(202)
                 .type(RoomType.DELUXE)
                 .status(RoomStatus.AVAILABLE)
@@ -76,7 +76,7 @@ class RoomServiceTest {
                 .smokingAllowed(false)
                 .build();
 
-        Room dirtyReservedRoom = new RoomBuilder()
+        Room dirtyReservedRoom =  Room.builder()
                 .roomNumber(301)
                 .type(RoomType.DELUXE)
                 .status(RoomStatus.RESERVED)
@@ -84,7 +84,7 @@ class RoomServiceTest {
                 .smokingAllowed(false)
                 .build();
 
-        Room dirtySuiteRoom = new RoomBuilder()
+        Room dirtySuiteRoom =  Room.builder()
                 .roomNumber(302)
                 .type(RoomType.SUITE)
                 .status(RoomStatus.UNDER_MAINTENANCE)
@@ -92,7 +92,7 @@ class RoomServiceTest {
                 .smokingAllowed(false)
                 .build();
 
-        Room smokingAllowedRoom = new RoomBuilder()
+        Room smokingAllowedRoom =  Room.builder()
                 .roomNumber(401)
                 .type(RoomType.STANDARD)
                 .status(RoomStatus.AVAILABLE)
@@ -184,7 +184,7 @@ class RoomServiceTest {
     }
 
     private static Room getRoom() {
-        return new RoomBuilder()
+        return Room.builder()
                 .id(UUID.randomUUID().toString())
                 .roomNumber(FAKER.number().numberBetween(100, 999))
                 .type(randomEnum(RoomType.class))
